@@ -17,3 +17,23 @@ function showWater4() {
 function showWater5() {
     document.getElementById('water5').value = 'water 5';
 }
+
+function hideWater1() {
+    document.getElementById('water1').value = '';
+}
+
+function hideWater2() {
+    document.getElementById('water2').value = '';
+}
+
+function hideWater3() {
+    document.getElementById('water3').value = '';
+}
+
+function hideWater4() {
+    document.getElementById('water4').value = '';
+}
+
+function hideWater5() {
+    document.getElementById('water5').value = '';
+}
