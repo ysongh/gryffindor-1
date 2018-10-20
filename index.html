@@ -4,6 +4,7 @@
     <title>Simple Map</title>
     <meta name="viewport" content="initial-scale=1.0">
     <meta charset="utf-8">
+    <link href="stylecheckbox.css" rel="stylesheet"></link>
     <style>
     html, body {
       height: 100%;
@@ -29,7 +30,10 @@
         <div class="input-group mb-3">
           <div class="input-group-prepend">
             <div class="input-group-text">
-              <input type="checkbox" onclick="if(this.checked){showWater1()}">
+              <label class="switch">
+                <input type="checkbox"  onclick="if(this.checked){showWater1()}">
+                <span class="slider round"></span>
+              </label>
             </div>
           </div>
           <input type="text" id="water1" class="form-control" aria-label="Text input with checkbox">
@@ -38,7 +42,10 @@
         <div class="input-group mb-3">
           <div class="input-group-prepend">
             <div class="input-group-text">
-              <input type="checkbox" onclick="if(this.checked){showWater2()}">
+              <label class="switch">
+                <input type="checkbox"  onclick="if(this.checked){showWater2()}">
+                <span class="slider round"></span>
+              </label>
             </div>
           </div>
           <input type="text" id="water2" class="form-control" aria-label="Text input with checkbox">
@@ -47,7 +54,10 @@
         <div class="input-group mb-3">
           <div class="input-group-prepend">
             <div class="input-group-text">
-              <input type="checkbox" onclick="if(this.checked){showWater3()}">
+              <label class="switch">
+                <input type="checkbox"  onclick="if(this.checked){showWater3()}">
+                <span class="slider round"></span>
+              </label>
             </div>
           </div>
           <input type="text" id="water3" class="form-control" aria-label="Text input with checkbox">
@@ -56,7 +66,10 @@
         <div class="input-group mb-3">
           <div class="input-group-prepend">
             <div class="input-group-text">
-              <input type="checkbox" onclick="if(this.checked){showWater4()}">
+              <label class="switch">
+                <input type="checkbox"  onclick="if(this.checked){showWater4()}">
+                <span class="slider round"></span>
+              </label>
             </div>
           </div>
           <input type="text" id="water4" class="form-control" aria-label="Text input with checkbox">
@@ -65,7 +78,10 @@
         <div class="input-group mb-3">
           <div class="input-group-prepend">
             <div class="input-group-text">
-              <input type="checkbox" onclick="if(this.checked){showWater5()}">
+              <label class="switch">
+                <input type="checkbox"  onclick="if(this.checked){showWater5()}">
+                <span class="slider round"></span>
+              </label>
             </div>
           </div>
           <input type="text" id="water5" class="form-control" aria-label="Text input with checkbox">
@@ -76,6 +92,7 @@
         <div id="map" class="img-fluid"></div>
       </div>
     </div>
+    
     
   </body>
   
