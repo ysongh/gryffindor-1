@@ -25,50 +25,50 @@
     <div class="row align-items-start">
       <div class="col-md-4">
         <div class="container">
-        <span class="badge badge-info">Water</span>
+        <span class="badge badge-info">Water 1</span>
         <div class="input-group mb-3">
           <div class="input-group-prepend">
             <div class="input-group-text">
-              <input type="checkbox" aria-label="Checkbox for following text input">
+              <input type="checkbox" onclick="if(this.checked){showWater1()}">
             </div>
           </div>
-          <input type="text" class="form-control" aria-label="Text input with checkbox">
+          <input type="text" id="water1" class="form-control" aria-label="Text input with checkbox">
         </div>
-        <span class="badge badge-info">Water</span>
+        <span class="badge badge-info">Water 2</span>
         <div class="input-group mb-3">
           <div class="input-group-prepend">
             <div class="input-group-text">
-              <input type="checkbox" aria-label="Checkbox for following text input">
+              <input type="checkbox" onclick="if(this.checked){showWater2()}">
             </div>
           </div>
-          <input type="text" class="form-control" aria-label="Text input with checkbox">
+          <input type="text" id="water2" class="form-control" aria-label="Text input with checkbox">
         </div>
-        <span class="badge badge-info">Water</span>
+        <span class="badge badge-info">Water 3</span>
         <div class="input-group mb-3">
           <div class="input-group-prepend">
             <div class="input-group-text">
-              <input type="checkbox" aria-label="Checkbox for following text input">
+              <input type="checkbox" onclick="if(this.checked){showWater3()}">
             </div>
           </div>
-          <input type="text" class="form-control" aria-label="Text input with checkbox">
+          <input type="text" id="water3" class="form-control" aria-label="Text input with checkbox">
         </div>
-        <span class="badge badge-info">Water</span>
+        <span class="badge badge-info">Water 4</span>
         <div class="input-group mb-3">
           <div class="input-group-prepend">
             <div class="input-group-text">
-              <input type="checkbox" aria-label="Checkbox for following text input">
+              <input type="checkbox" onclick="if(this.checked){showWater4()}">
             </div>
           </div>
-          <input type="text" class="form-control" aria-label="Text input with checkbox">
+          <input type="text" id="water4" class="form-control" aria-label="Text input with checkbox">
         </div>
-        <span class="badge badge-info">Water</span>
+        <span class="badge badge-info">Water 5</span>
         <div class="input-group mb-3">
           <div class="input-group-prepend">
             <div class="input-group-text">
-              <input type="checkbox" aria-label="Checkbox for following text input">
+              <input type="checkbox" onclick="if(this.checked){showWater5()}">
             </div>
           </div>
-          <input type="text" class="form-control" aria-label="Text input with checkbox">
+          <input type="text" id="water5" class="form-control" aria-label="Text input with checkbox">
         </div>
       </div>
       </div>
@@ -76,6 +76,7 @@
         <div id="map" class="img-fluid"></div>
       </div>
     </div>
+    
   </body>
   
   <script>
@@ -87,5 +88,6 @@
         });
       }
     </script>
+    <script src="checkbox.js"></script>
     <script src="secrets.js"></script>
 </html>
