@@ -8,19 +8,42 @@
     <link href="style.css" rel="stylesheet"></link>
   </head>
   <body class="row">
-    <aside id="user-options" class="col-3">
 
+
+    <aside id="user-options" class="col-3">
+      <form onsumbit={>
+        <label for="long"> Longitud </label>
+        <input type="input" id="long" name="long">
+        <label for="lat"> Latitude </label>
+        <input type="input" id="lat" name="lat">
+        <input type="submit" name="submit">
+      </form>
     </aside>
+
+
     <div id="map" class="col"></div>
     <script>
       var map;
       function initMap() {
+
         map = new google.maps.Map(document.getElementById('map'), {
-          center: {lat: -34.397, lng: 150.644},
-          zoom: 8
+          center: {lat: 34.8021, lng: 38.9968},
+          zoom: 7
         });
       }
     </script>
+
+
+    
+    <script>
+      console.log(document.location.search)
+      var params  = new URLSearchParams(document.location.search);
+
+      let {lat, long} = params;
+
+
+    </script>
+
     <script src="secrets.js"></script>
   </body>
 </html>
