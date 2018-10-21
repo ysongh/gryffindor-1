@@ -1,15 +1,26 @@
 function toggle (checked, id, onValue) {
-  console.log('onValue', onValue)
+  console.log('onValue', onValue);
   const node = document.getElementById(id);
   node.value = checked ? onValue : '';
 }
 
 const optionsDiv = document.getElementById('options');
 
-for (let i = 1; i <= 5; i++) {
+const params  = new URLSearchParams(document.location.search.substring(1));
+const [Latitude, Longitude] = [params.get('Latitude'), params.get('Longitude')];
+
+const closestCamps = payload
+  .map(area => ({
+    distance: Math.sqrt((Latitude - area.Latitude) ** 2 + (Longitude - area.Longitude) ** 2),
+    name: area.Region,
+  })
+  )
+  .sort((a, b) => a.distance - b.distance);
+
+closestCamps.forEach((camp, i) => {
   const span = document.createElement('span');
   span.setAttribute('class', 'badge badge-info');
-  span.innerHTML = 'Water ' + i;
+  span.innerHTML = (i + 1) + ': ' + camp.name;
   optionsDiv.appendChild(span);
 
   const toggledInput = document.createElement('input');
@@ -22,7 +33,7 @@ for (let i = 1; i <= 5; i++) {
 
   const checkbox = document.createElement('input');
   checkbox.setAttribute('type', 'checkbox');
-  const toggleText = "toggle(this.checked, 'water" + i + "', 'Water " + i + "')";
+  const toggleText = "toggle(this.checked, 'water" + i + "', '" + camp.distance + "')";
   checkbox.setAttribute('onclick', toggleText);
 
   const slider = document.createElement('span');
@@ -48,4 +59,4 @@ for (let i = 1; i <= 5; i++) {
   div3.appendChild(toggledInput);
 
   optionsDiv.appendChild(div3);
-}
+})
