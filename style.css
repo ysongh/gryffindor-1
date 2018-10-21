@@ -28,3 +28,7 @@ h1 {
 .flex-1 {
   flex: 1;
 }
+
+#headerColor{
+  background-image: radial-gradient(white 15%, black 60%);
+}
