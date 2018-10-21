@@ -8,12 +8,18 @@
     <style>
     html, body {
       height: 100%;
-      margin: 0;
-      padding: 0;
     }
     
     #map {
-      height: 650px;
+      height: 575px;
+    }
+    
+    #headerColor{
+      background-image: radial-gradient(white 15%, black 60%);
+    }
+    
+    #options {
+      overflow-y: scroll;
     }
     </style>
     <link rel="stylesheet"
@@ -27,12 +33,12 @@
   </head>
   <body>
     <div class="d-flex flex-column">
-      <div class="header text-center bg-primary">
+      <div class="header text-center" id="headerColor">
         <h1 class="mb-0 py-3"><i class="fas fa-globe"></i>Gryffindor<i class="fas fa-globe"></i></h1>
       </div>
-      <div class="row align-items-start">
-        <div class="col-md-4">
-          <div class="container">
+      <div class="row align-items-start mr-0">
+        <div id="options" class="col-4">
+          <div class="mx-3">
           <span class="badge badge-info">Water 1</span>
           <div class="input-group mb-3">
             <div class="input-group-prepend">
@@ -95,8 +101,8 @@
           </div>
         </div>
         </div>
-        <div class="col-md-8">
-          <div id="map" class="img-fluid"></div>
+        <div class="col-md-8 px-0">
+          <div id="map"></div>
         </div>
       </div>
     </div>
