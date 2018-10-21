@@ -12,15 +12,20 @@
 
     <aside id="user-options" class="col-3">
       <form class="m-3"></form>
+      <hr />
+      <div id="location-details" class="mx-3"></div>
     </aside>
+
 
 
     <div id="map" class="col"></div>
     <script src="main.js"></script>
 
+    <script type="text/javascript" src="predicted.js"></script>
+
 
     <script>
-
+      console.log(payload)
       // The following example creates complex markers to indicate beaches near
       // Sydney, NSW, Australia. Note that the anchor is set to (0,32) to correspond
       // to the base of the flagpole.
@@ -37,7 +42,7 @@
       // Data for the markers consisting of a name, a LatLng and a zIndex for the
       // order in which these markers should display on top of each other.
       var beaches = [
-        ['Bondi Beach', 36.51194, 36.86954, 4],
+        ['Bondi Beach', 36.51194, 36.89999, 4],
         ['Coogee Beach', 34.01194, 36.86954, 5],
         ['Cronulla Beach', 34.61194, 36.86954, 3],
         ['Manly Beach', 35.91194, 36.86954, 2],
@@ -68,17 +73,66 @@
         //   coords: [1, 1, 1, 20, 18, 20, 18, 1],
         //   type: 'poly'
         // };
-        for (var i = 0; i < beaches.length; i++) {
-          var beach = beaches[i];
+        var bounds = new google.maps.LatLngBounds();
+        for (var i = 0; i < payload.length; i++) {
+
+          var beach = payload[i];
           var marker = new google.maps.Marker({
-            position: {lat: beach[1], lng: beach[2]},
+            position: {lat: beach['Latitude'], lng: beach['Longitude']},
             map: map,
+            content: payload[i]['Region'],
             icon: image,
-            // shape: shape,
-            title: beach[0],
-            zIndex: beach[3]
+            title: beach['Region'],
+            zIndex: null
           });
-        }
+        
+          var infowindow = new google.maps.InfoWindow();
+          google.maps.event.addListener(marker, 'click', (function (marker, i, infowindow) {
+              return function () {
+                console.log("this", payload[i])
+                console.log("this", payload[i].Latitude)
+                console.log("error", payload[i]['Mean squared error'])
+                console.log("error", payload[i]['Population in 2015'])
+                console.log("error", payload[i]['Surface water in sq.km'])
+
+
+                const detailDiv = document.getElementById('location-details');
+
+                if (!detailDiv.children.length) {
+                  const header = document.createElement('h2');
+                  header.setAttribute('id', 'location-header')
+                  header.innerHTML = this.title;
+                  detailDiv.appendChild(header);
+
+                  for (let key in payload[i]) {
+                    const node = document.createElement('p');
+                    node.innerHTML = key + ': ' + payload[i][key];
+                    node.setAttribute('id', key)
+                    detailDiv.appendChild(node); 
+                  }
+                } else {
+                  const header = document.getElementById('location-header');
+                  header.innerHTML = payload[i]['Region'];
+                  for (let key in payload[i]) {
+                    const node = document.getElementById(key);
+                    node.innerHTML = key + ': ' + payload[i][key];
+                  }
+                }
+                
+
+                  infowindow.setContent(this.content);
+                  infowindow.open(map, this);
+              };
+          })(marker, i, infowindow));
+          bounds.extend(marker.position);
+      }
+
+      function updateSideBar(e) {
+
+      }
+
+
+
       }
     </script>
     <script async defer
