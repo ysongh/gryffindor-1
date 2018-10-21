@@ -1,9 +1,30 @@
 html, body {
   height: 100%;
-  margin: 0;
-  padding: 0;
+  max-height: 100%;
+  max-width: 100%;
+}
+
+.limit-height {
+  max-height: 87%;
+}
+
+.limit-width {
+  max-width: 101%;
+}
+
+aside {
+  overflow: auto;
+  max-height: 100%;
+}
+
+h1 {
+  text-align: center;
 }
 
 #map {
   height: 100%;
+}
+
+.flex-1 {
+  flex: 1;
 }

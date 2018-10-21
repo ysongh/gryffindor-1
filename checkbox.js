@@ -37,3 +37,17 @@ function hideWater4() {
 function hideWater5() {
     document.getElementById('water5').value = '';
 }
+
+const optionsDiv = document.getElementById('options');
+
+/*
+for (let i = 1; i <= 5; i++) {
+  const span = document.createElement('span');
+  span.setAttribute('class', 'badge badge-info');
+  optionsDiv.appendChild(span);
+
+  const div1;
+  const div2;
+  const div3;
+}
+*/
